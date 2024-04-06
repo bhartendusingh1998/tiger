@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  registrationFormGroup!: FormGroup
+  registrationFormGroup!: UntypedFormGroup
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
     private AuthService: AuthService) { }
 
   ngOnInit(): void {

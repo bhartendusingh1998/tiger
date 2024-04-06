@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -9,14 +9,14 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  userFormGroup!: FormGroup
+  userFormGroup!: UntypedFormGroup
   genderValue: any;
   merriedField: any;
   file: any;
   loading: boolean = false;
   shortLink: any;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private userService: UserService,
               private router:Router) { }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  loginFormGroup!: FormGroup;
+  loginFormGroup!: UntypedFormGroup;
   token: any;
   modalRef?: BsModalRef;
-  email = new FormControl()
+  email = new UntypedFormControl()
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private AuthService: AuthService,
     private modalService: BsModalService,
     private router: Router
