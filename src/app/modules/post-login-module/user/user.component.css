@@ -1,0 +1,45 @@
+.card {
+    width: 100%; 
+    height: 270px; 
+    border-radius: 0px !important;
+}
+
+.delete {
+    margin-left: 40%; 
+    width: 30%;
+}
+
+.details {
+    width: 30%;
+	background: darkmagenta;
+	color: #fff;
+	border-radius: 3px;
+	border: 0;
+	box-shadow: 0 3px 0 0 hotpink;
+	transition: all 0.3s ease-in-out;
+}
+
+.create_user {
+	width: 25%;
+	height: 45px;
+	background: darkmagenta;
+	color: #fff;
+	border-radius: 3px;
+	border: 0;
+	box-shadow: 0 3px 0 0 hotpink;
+	transition: all 0.3s ease-in-out;
+	font-size: 18px;
+    font-weight: 400;
+}
+
+.btn:hover {
+	background: rebeccapurple;
+	box-shadow: 0 3px 0 0 deeppink;
+}
+
+ .image {
+	height: 148px;
+    width: 49vh;
+    /* position: relative; */
+}
+ 

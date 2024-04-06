@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="userCreate text-right my-3">
+        <button type="button" class="btn create_user" routerLink="/create-user"> New User Create </button>
+    </div>   
+    <hr>
+    <div class="row">
+        <div class="col-md-3 my-4" *ngFor="let user of userData">
+            <div class="card">
+                <div class="card-header" style="height: 56px;">
+                   <h5>{{user.firstName}} {{user.lastName}}</h5> 
+                </div>
+                <div class="img">  
+                        <img class="image" src="{{user.image}}" *ngIf="user.image" alt="">
+                        <img class="image" src="../../../../assets/images/userDefault.png" *ngIf="!user.image">
+                </div>
+                <div class="card-footer">
+                    <div class="cardButton"> 
+                        <button type="button" class="btn btn-primary details" routerLink="/user-details/{{user._id}}">Details</button>
+                        <button type="button" class="btn btn-danger delete" (click)="userDelete(user._id)">Delete</button>                       
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>

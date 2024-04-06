@@ -1,0 +1,165 @@
+<div class="fluid-container">
+    
+    <div class="card m-5">
+        <div class="card-header"><h3>User Form</h3></div>
+        <div class="card-body">
+            <form [formGroup]="userFormGroup" (ngSubmit)="submitUser()">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>First Name</label>
+                                <input type="text" formControlName="firstName" class="form-control"  placeholder="First Name">
+                            </div>                         
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Last Name</label>
+                                <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Father's Name</label>
+                                <input type="text" formControlName="fatherName" class="form-control" placeholder="Father's Name">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Mother's Name</label>
+                                <input type="text" formControlName="motherName" class="form-control" placeholder="Mother's Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="frame">
+                            <div class="center">
+                                <div class="title">
+                                    <h1>Drop file to upload</h1>
+                                </div>
+                        
+                                <div class="dropzone">
+                                    <!-- <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon"/> -->
+                                    <input #imageInput  type="file" class="upload-input" (change)="ImageUpload($event)" />
+                                </div>
+                        
+                                <button type="button" class="btn uploadImage" (click)="onUpload()">Image Upload</button>
+                        
+                            </div>
+                        </div>
+                        <!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN  -->
+                        
+                        <!-- NO JS ADDED YET -->
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Address</label>
+                        <input type="text" formControlName="address" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <br>
+                <div class="row">    
+                    <div class="col-md-6">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Date of Birth</label>
+                        <input type="text" formControlName="dob" class="form-control" placeholder="Date of Birth">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <!-- <div class="col-md-4">
+                        <label>Gender</label>
+                        <input type="text" formControlName="gender" class="form-control" placeholder="Gender" (Change)="genderShow($event)">
+                    </div> -->
+                    <div class="col-md-6">
+                        <label>Qualification</label>
+                        <input type="text" formControlName="qualification" class="form-control" placeholder="Qualification">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Contect Number</label>
+                        <input type="number" formControlName="contectNumber" class="form-control" placeholder="Contect Number">
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="male" id="gender1" (change)="genderStatus($event)">
+                            <label class="form-check-label" for="gender1">Male</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="female" id="gender1" (change)="genderStatus($event)">
+                            <label class="form-check-label" for="gender1">Female</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="neutral" id="gender1" (change)="genderStatus($event)">
+                            <label class="form-check-label" for="gender1">Neutral</label>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row" *ngIf="genderValue != 'neutral' && genderValue">
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="merriedStatus" id="merriedStatus1" value="merried" (change)="merriedStatus($event)">
+                            <label class="form-check-label" for="merriedStatus1">Merried</label>
+                          </div>
+    
+                    </div>
+                    <div class="col-md-2" *ngIf="merriedField=='merried'">
+                        <label *ngIf="genderValue == 'male'">Wife's Name</label>
+                        <label *ngIf="genderValue == 'female'">Husband's Name</label>
+                    </div>
+                    <div class="col-md-6" *ngIf="merriedField=='merried'">
+                        <input *ngIf="genderValue == 'male'" type="text" formControlName="wifeName" class="form-control" placeholder="Wife's Name">
+                        <input *ngIf="genderValue == 'female'" type="text" formControlName="husbandName" class="form-control" placeholder="Husband's Name">
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+                <br>
+                <div class="row" *ngIf="genderValue != 'neutral' && genderValue">
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="merriedStatus" id="merriedStatus1" value="unMerried" (change)="merriedStatus($event)">
+                            <label class="form-check-label" for="merriedStatus1">Un-Merried</label>
+                        </div>
+    
+                    </div>
+                    <div class="col-md-2" *ngIf="merriedField=='unMerried'">
+                        <label *ngIf="genderValue == 'male'">Girlfriend's Name</label>
+                        <label *ngIf="genderValue == 'female'">Boyfriend's Name</label>
+                    </div>
+                    <div class="col-md-6" *ngIf="merriedField=='unMerried'">
+                        <input *ngIf="genderValue == 'male'" type="text"  class="form-control" placeholder="Girlfriend's Name">
+                        <input *ngIf="genderValue == 'female'" type="text" formControlName="boyFriendName" class="form-control" placeholder="Boyfriend's Name">
+                    </div>
+                </div>
+                <br>
+                <hr>           
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <button type="submit" class="btn text-white create_user" [disabled]="userFormGroup.invalid"> Create User </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+        
+</div>

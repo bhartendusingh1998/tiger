@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 my-5">
+            <div class="card border ">
+                <div class="card-header cardheader">
+                    <h4 class="text-center text-white">Sign Up Tiger</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="registrationFormGroup" (ngSubmit)="submitRegistration()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label><b>Username</b></label>
+                                <input type="text" class="form-control" formControlName="username"
+                                    placeholder="Username" required>
+                                <span class="text-danger"
+                                    *ngIf="(registerFormControl.username.touched) && registerFormControl.username.errors?.required">
+                                    Name is required
+                                </span>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label><b>Email</b></label>
+                                <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label><b>Password</b></label>
+                                <input type="text" class="form-control" formControlName="password"
+                                    placeholder="Password">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <label><b>Address</b></label>
+                                <input type="text" class="form-control" formControlName="address" placeholder="Address">
+                            </div>
+                        </div>
+                        <br> -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label><b>Contect Number</b></label>
+                                <input type="number" class="form-control" formControlName="contectNumber"
+                                    placeholder="Contect Number">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-blue text-white">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

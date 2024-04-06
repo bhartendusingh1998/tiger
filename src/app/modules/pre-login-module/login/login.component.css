@@ -1,0 +1,33 @@
+.cardheader{
+    background-color: #000066;
+}
+
+.card {
+    border-radius: 0px !important;
+}
+
+
+.form-control{
+    height: 50px;
+    background-color: #e6f2ff;
+}
+
+.btn-blue{
+    background-color: #000066;
+    width: 22%;
+    height: 45px;
+}
+
+.forget{
+    font-weight: 700;
+}
+
+.modal-header{
+    background-color: #000066;
+}
+
+.btndialogue{
+    width: 18%;
+}
+
+
